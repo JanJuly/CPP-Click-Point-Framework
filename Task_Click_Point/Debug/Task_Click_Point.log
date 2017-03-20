@@ -1,0 +1,3 @@
+﻿  Player.cpp
+c:\users\sarah\documents\programming_task\task_click_point\task_click_point\player.h(8): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Task_Click_Point.vcxproj -> C:\Users\sarah\Documents\Programming_Task\Task_Click_Point\Debug\Task_Click_Point.exe
