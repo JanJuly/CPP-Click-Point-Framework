@@ -3,6 +3,7 @@
 Player::Player()
 {
 	rect.setSize(sf::Vector2f(32, 32));
+
 }
 
 void Player::update()
@@ -21,7 +22,7 @@ void Player::updateMove()
 	{
 		//COUNTER FOR ANIMATION
 		walkingCounterPersistent++;
-		if (walkingCounterPersistent == refreshSpeed) {
+		if (walkingCounterPersistent == 20) {
 			walkingCounterPersistent = 0;
 			walkingCounter++;
 		}

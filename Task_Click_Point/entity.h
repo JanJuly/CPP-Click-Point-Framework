@@ -22,5 +22,6 @@ public:
 	sf::RectangleShape rect;
 	sf::Sprite sprite;
 	sf::Text text;
+	sf::Vector2i mousePosition = sf::Mouse::getPosition(window);
 
 };

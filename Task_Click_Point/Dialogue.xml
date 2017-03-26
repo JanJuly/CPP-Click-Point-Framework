@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<data>
+  <Dialogue name="Dialogue_Aladdin">
+    <DialogueLine speaker = "John" line = "Fuck You"/>
+    <DialogueLine speaker = "Mary" line = "Fuck You Too"/>
+  </Dialogue>
+  <Dialogue name="Dialogue_Chinese">
+    <DialogueLine speaker = "John" line = "Fuck You"/>
+    <DialogueLine speaker = "Mary" line = "Fuck You Too"/>
+  </Dialogue>
+</data>

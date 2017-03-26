@@ -155,14 +155,22 @@
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="random.cpp" />
+    <ClCompile Include="targets.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="entity.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="random.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="targets.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Task_Click_Point.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Dialogue.xml" />
+    <Xml Include="Dialogue_Test.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

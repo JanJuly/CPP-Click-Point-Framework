@@ -1,3 +1,23 @@
-﻿  Player.cpp
-c:\users\sarah\documents\programming_task\task_click_point\task_click_point\player.h(8): warning C4305: 'initializing': truncation from 'double' to 'float'
+﻿  targets.cpp
+c:\users\sarah\documents\programming_task\task_click_point\task_click_point\targets.cpp(7): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\sarah\documents\programming_task\task_click_point\task_click_point\targets.cpp(22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\sarah\documents\programming_task\task_click_point\task_click_point\targets.cpp(34): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\sarah\documents\programming_task\task_click_point\task_click_point\targets.cpp(37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\sarah\documents\programming_task\task_click_point\task_click_point\targets.cpp(44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\sarah\documents\programming_task\task_click_point\task_click_point\targets.cpp(47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\sarah\documents\programming_task\task_click_point\task_click_point\targets.cpp(54): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\sarah\documents\programming_task\task_click_point\task_click_point\targets.cpp(57): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\sarah\documents\programming_task\task_click_point\task_click_point\targets.cpp(65): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\sarah\documents\programming_task\task_click_point\task_click_point\targets.cpp(68): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\sarah\documents\programming_task\task_click_point\task_click_point\targets.cpp(71): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\sarah\documents\programming_task\task_click_point\task_click_point\targets.cpp(84): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  main.cpp
+c:\users\sarah\documents\programming_task\task_click_point\task_click_point\main.cpp(64): warning C4018: '<': signed/unsigned mismatch
+c:\users\sarah\documents\programming_task\task_click_point\task_click_point\main.cpp(187): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\sarah\documents\programming_task\task_click_point\task_click_point\main.cpp(188): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\sarah\documents\programming_task\task_click_point\task_click_point\main.cpp(199): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\sarah\documents\programming_task\task_click_point\task_click_point\main.cpp(200): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\sarah\documents\programming_task\task_click_point\task_click_point\main.cpp(223): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  Generating Code...
+c:\users\sarah\documents\programming_task\task_click_point\task_click_point\main.cpp(89): warning C4715: 'ReadXMLNew': not all control paths return a value
   Task_Click_Point.vcxproj -> C:\Users\sarah\Documents\Programming_Task\Task_Click_Point\Debug\Task_Click_Point.exe
