@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Scene>
+		<background>Sprites\\background.png</background>
+		<music>Sounds\\music_1.wav</music>
+		<connectedLeft>2</connectedLeft>
+		<connectedRight>1</connectedRight>
+	</Scene>
+	<Scene>
+		<background>Sprites\\background2.png</background>
+		<music>Sounds\\music_2.wav</music>
+		<connectedLeft>0</connectedLeft>
+		<connectedRight>2</connectedRight>
+	</Scene>
+	<Scene>
+		<background>Sprites\\background3.png</background>
+		<music>Sounds\\music_3.wav</music>
+		<connectedLeft>1</connectedLeft>
+		<connectedRight>0</connectedRight>
+	</Scene>
+</data>

@@ -7,10 +7,13 @@
 class targets : public entity
 {
 public:
+	// values inherited from xml
 	string name;
 	string textContent;
 	float width;
 	float height;
+	int sceneNumber;
+
 	int counter = 0;
 	int walkingCounter = 0;
 	int walkingCounterPersistent = 0;

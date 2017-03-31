@@ -31,7 +31,7 @@ public:
 	sf::Clock clock;
 
 	// Set current scene number (starting with scene 1)
-	int sceneNumber = 1;
+	int sceneNumber = 0;
 	// Set current introduction phase (starting with phase 1)
 	int introductionNumber = 1;
 	int soundCounter = 0;

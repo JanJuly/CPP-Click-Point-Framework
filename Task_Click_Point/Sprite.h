@@ -24,7 +24,8 @@ public:
 	int xPos;
 	// initial y draw position
 	int yPos;
-
+	// eventually the scene in which the sprite should be displayed
+	int scene;
 };
 
 vector<SpriteContent> ReadXmlSpriteContent(string type) {
@@ -49,6 +50,7 @@ vector<SpriteContent> ReadXmlSpriteContent(string type) {
 			c.spriteHeight = stoi(sprites->first_node("spriteHeight")->value());
 			c.xPos = stoi(sprites->first_node("xPos")->value());
 			c.yPos = stoi(sprites->first_node("yPos")->value());
+			c.scene = stoi(sprites->first_node("scene")->value());
 			// push sprite to temporary vector
 			temp.push_back(c);
 		}
