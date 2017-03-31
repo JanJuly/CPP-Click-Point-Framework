@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<data>
+<data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Sprite>
     <spriteType>Character</spriteType>
     <Name>Aladdin</Name>
@@ -134,5 +134,32 @@
     <spriteHeight>48</spriteHeight>
     <xPos>410</xPos>
     <yPos>300</yPos>
+  </Sprite>
+  <Sprite>
+    <spriteType>Character</spriteType>
+    <Name>ddddddddddddddddd</Name>
+    <location>Sprites\\rocket.png</location>
+    <spriteWidth>32</spriteWidth>
+    <spriteHeight>48</spriteHeight>
+    <xPos>510</xPos>
+    <yPos>400</yPos>
+  </Sprite>
+  <Sprite>
+    <spriteType>Character</spriteType>
+    <Name>dadadad</Name>
+    <location>Sprites\\rocket.png</location>
+    <spriteWidth>32</spriteWidth>
+    <spriteHeight>48</spriteHeight>
+    <xPos>210</xPos>
+    <yPos>400</yPos>
+  </Sprite>
+  <Sprite>
+    <spriteType>Character</spriteType>
+    <Name>dadggggghghghadad</Name>
+    <location>Sprites\\rocket.png</location>
+    <spriteWidth>32</spriteWidth>
+    <spriteHeight>48</spriteHeight>
+    <xPos>110</xPos>
+    <yPos>400</yPos>
   </Sprite>
 </data>

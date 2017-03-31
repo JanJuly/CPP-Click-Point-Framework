@@ -49,8 +49,9 @@ int main(int, const char**)
 	vector<Dialogue> dialogues = ReadXmlDialogue(); // includes all dialogue and quest lines
 	class Dialogue dialogue;
 
-	vector<targets> characters(15); // create [n] copies of class for [n] characters
 	vector<spriteTexture> sprites = ReadXmlSprite(); // includes all characters attributes
+	int size = sprites[0].attr.size();
+	vector<targets> characters(size); // create [n] copies of class for [n] characters
 	class spriteTexture spriteTexture;
 
 	vector<inventoryContent> items(9); // create [c] copies of class for [n] letters
