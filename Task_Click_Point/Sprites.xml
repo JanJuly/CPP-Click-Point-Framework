@@ -8,6 +8,7 @@
 		<spriteHeight>52</spriteHeight>
 		<xPos>500</xPos>
 		<yPos>250</yPos>
+		<scene>0</scene>
 	</Sprite>
 	<Sprite>
 		<spriteType>Character</spriteType>
@@ -17,6 +18,7 @@
 		<spriteHeight>52</spriteHeight>
 		<xPos>600</xPos>
 		<yPos>200</yPos>
+		<scene>0</scene>
 	</Sprite>
 	<Sprite>
 		<spriteType>Character</spriteType>
@@ -26,6 +28,7 @@
 		<spriteHeight>48</spriteHeight>
 		<xPos>150</xPos>
 		<yPos>230</yPos>
+		<scene>0</scene>
 	</Sprite>
 	<Sprite>
 		<spriteType>Character</spriteType>
@@ -35,6 +38,7 @@
 		<spriteHeight>48</spriteHeight>
 		<xPos>300</xPos>
 		<yPos>220</yPos>
+		<scene>0</scene>
 	</Sprite>
 	<Sprite>
 		<spriteType>Character</spriteType>
@@ -44,6 +48,7 @@
 		<spriteHeight>48</spriteHeight>
 		<xPos>600</xPos>
 		<yPos>250</yPos>
+		<scene>0</scene>
 	</Sprite>
 	<Sprite>
 		<spriteType>Character</spriteType>
@@ -53,6 +58,7 @@
 		<spriteHeight>56</spriteHeight>
 		<xPos>210</xPos>
 		<yPos>240</yPos>
+		<scene>0</scene>
 	</Sprite>
 	<Sprite>
 		<spriteType>Character</spriteType>
@@ -62,6 +68,7 @@
 		<spriteHeight>48</spriteHeight>
 		<xPos>310</xPos>
 		<yPos>240</yPos>
+		<scene>0</scene>
 	</Sprite>
 	<Sprite>
 		<spriteType>Character</spriteType>
@@ -71,6 +78,7 @@
 		<spriteHeight>96</spriteHeight>
 		<xPos>270</xPos>
 		<yPos>100</yPos>
+		<scene>1</scene>
 	</Sprite>
 	<Sprite>
 		<spriteType>Character</spriteType>
@@ -80,6 +88,7 @@
 		<spriteHeight>56</spriteHeight>
 		<xPos>340</xPos>
 		<yPos>190</yPos>
+		<scene>2</scene>
 	</Sprite>
 	<Sprite>
 		<spriteType>Character</spriteType>
@@ -89,6 +98,7 @@
 		<spriteHeight>48</spriteHeight>
 		<xPos>600</xPos>
 		<yPos>190</yPos>
+		<scene>2</scene>
 	</Sprite>
 	<Sprite>
 		<spriteType>Character</spriteType>
@@ -98,6 +108,7 @@
 		<spriteHeight>48</spriteHeight>
 		<xPos>90</xPos>
 		<yPos>250</yPos>
+		<scene>2</scene>
 	</Sprite>
 	<Sprite>
 		<spriteType>Character</spriteType>
@@ -107,6 +118,7 @@
 		<spriteHeight>72</spriteHeight>
 		<xPos>780</xPos>
 		<yPos>250</yPos>
+		<scene>2</scene>
 	</Sprite>
 	<Sprite>
 		<spriteType>Character</spriteType>
@@ -116,6 +128,7 @@
 		<spriteHeight>48</spriteHeight>
 		<xPos>400</xPos>
 		<yPos>250</yPos>
+		<scene>2</scene>
 	</Sprite>
 	<Sprite>
 		<spriteType>Character</spriteType>
@@ -125,6 +138,7 @@
 		<spriteHeight>48</spriteHeight>
 		<xPos>410</xPos>
 		<yPos>190</yPos>
+		<scene>2</scene>
 	</Sprite>
 	<Sprite>
 		<spriteType>Character</spriteType>
@@ -134,6 +148,7 @@
 		<spriteHeight>48</spriteHeight>
 		<xPos>100</xPos>
 		<yPos>100</yPos>
+		<scene>2</scene>
 	</Sprite>
 	<Sprite>
 		<spriteType>Character</spriteType>
@@ -143,6 +158,7 @@
 		<spriteHeight>48</spriteHeight>
 		<xPos>410</xPos>
 		<yPos>300</yPos>
+		<scene>2</scene>
 	</Sprite>
 	<Sprite>
 		<spriteType>Letter</spriteType>
@@ -152,6 +168,7 @@
 		<spriteHeight>0</spriteHeight>
 		<xPos>313</xPos>
 		<yPos>75</yPos>
+		<scene>0</scene>
 	</Sprite>
 	<Sprite>
 		<spriteType>Letter</spriteType>
@@ -161,6 +178,7 @@
 		<spriteHeight>0</spriteHeight>
 		<xPos>376</xPos>
 		<yPos>75</yPos>
+		<scene>0</scene>
 	</Sprite>
 	<Sprite>
 		<spriteType>Letter</spriteType>
@@ -170,6 +188,7 @@
 		<spriteHeight>0</spriteHeight>
 		<xPos>439</xPos>
 		<yPos>75</yPos>
+		<scene>0</scene>
 	</Sprite>
 	<Sprite>
 		<spriteType>Letter</spriteType>
@@ -179,6 +198,7 @@
 		<spriteHeight>0</spriteHeight>
 		<xPos>502</xPos>
 		<yPos>75</yPos>
+		<scene>0</scene>
 	</Sprite>
 	<Sprite>
 		<spriteType>Letter</spriteType>
@@ -188,6 +208,7 @@
 		<spriteHeight>0</spriteHeight>
 		<xPos>313</xPos>
 		<yPos>136</yPos>
+		<scene>0</scene>
 	</Sprite>
 	<Sprite>
 		<spriteType>Letter</spriteType>
@@ -197,6 +218,7 @@
 		<spriteHeight>0</spriteHeight>
 		<xPos>376</xPos>
 		<yPos>136</yPos>
+		<scene>0</scene>
 	</Sprite>
 	<Sprite>
 		<spriteType>Letter</spriteType>
@@ -206,6 +228,7 @@
 		<spriteHeight>0</spriteHeight>
 		<xPos>439</xPos>
 		<yPos>136</yPos>
+		<scene>0</scene>
 	</Sprite>
 	<Sprite>
 		<spriteType>Letter</spriteType>
@@ -215,6 +238,7 @@
 		<spriteHeight>0</spriteHeight>
 		<xPos>502</xPos>
 		<yPos>136</yPos>
+		<scene>0</scene>
 	</Sprite>
 	<Sprite>
 		<spriteType>Letter</spriteType>
@@ -224,5 +248,6 @@
 		<spriteHeight>0</spriteHeight>
 		<xPos>313</xPos>
 		<yPos>199</yPos>
+		<scene>0</scene>
 	</Sprite>
 </data>

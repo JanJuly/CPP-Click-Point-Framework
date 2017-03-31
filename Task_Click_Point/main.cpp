@@ -17,6 +17,7 @@
 #include "Dialogue.h"
 #include "Inventory.h"
 #include "Sprite.h"
+#include "Scene.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -49,6 +50,20 @@ int main(int, const char**)
 	vector<Dialogue> dialogues = ReadXmlDialogue(); // includes all dialogue and quest lines
 	class Dialogue dialogue;
 
+	// scenes import
+	vector<SceneContent> scenesContent = ReadXmlScene();
+	vector<Scene> scenes(scenesContent.size());
+	for (int s = 0; s < scenes.size(); s++) {
+		scenes[s].bgTexture.loadFromFile(scenesContent[s].background);
+		sf::Sprite sp(scenes[s].bgTexture);
+		scenes[s].bgSprite = sp;
+		scenes[s].bgMusic.openFromFile(scenesContent[s].music);
+		scenes[s].bgMusic.setVolume(20);
+		scenes[s].bgMusic.setLoop(true);
+		scenes[s].sceneLeft = scenesContent[s].sceneLeft;
+		scenes[s].sceneRight = scenesContent[s].sceneRight;
+	}
+
 	// characters import
 	vector<SpriteContent> characterSprites = ReadXmlSpriteContent("Character");
 	vector<targets> characters(characterSprites.size());
@@ -57,6 +72,7 @@ int main(int, const char**)
 		characters[s].name = characterSprites[s].name;
 		characters[s].height = characterSprites[s].spriteHeight;
 		characters[s].width = characterSprites[s].spriteWidth;
+		characters[s].sceneNumber = characterSprites[s].scene;
 		characters[s].texture.loadFromFile(characterSprites[s].sourceFile);
 		characters[s].sprite.setTexture(characters[s].texture);
 		characters[s].rect.setPosition(characterSprites[s].xPos, characterSprites[s].yPos);
@@ -79,24 +95,6 @@ int main(int, const char**)
 
 	// call entity class for gameplay state
 	class entity gameplay;
-
-	//Setup background images
-	sf::Texture background_1;
-	sf::Texture background_2;
-	sf::Texture background_3;
-
-	// load background textures out of file Sprites
-	if (!background_1.loadFromFile("Sprites\\background.png"))
-		return EXIT_FAILURE;
-	if (!background_2.loadFromFile("Sprites\\background2.png"))
-		return EXIT_FAILURE;
-	if (!background_3.loadFromFile("Sprites\\background3.png"))
-		return EXIT_FAILURE;
-
-	// set texture of background sprite
-	sf::Sprite sprite_background(background_1);
-	sf::Sprite sprite_background_2(background_2);
-	sf::Sprite sprite_background_3(background_3);
 
 	// Create text element for speech box
 	sf::Font font;
@@ -126,14 +124,6 @@ int main(int, const char**)
 	inventorySprite.setPosition(sf::Vector2f(window.getSize().x / 2 - inventorySprite.getLocalBounds().width / 2,
 		window.getSize().y / 2 - inventorySprite.getLocalBounds().height / 2));
 
-	//setup background music
-	sf::Music music;
-	string musicSource = "Sounds\\music_1.wav";
-	music.openFromFile(musicSource);
-	music.play();
-	music.setVolume(20);
-	music.setLoop(true);
-
 	//setup sounds
 	sf::SoundBuffer buffer;
 	buffer.loadFromFile("Sounds\\key.ogg");
@@ -161,6 +151,8 @@ int main(int, const char**)
 	bool mouseLeftDown = false;
 	bool keyDown = false;
 
+	// start music background of scene 1
+	scenes[0].bgMusic.play();
 
 	// Update function
 	while (window.isOpen())
@@ -173,13 +165,6 @@ int main(int, const char**)
 		}
 		window.clear();
 		textTimer = clock.getElapsedTime().asMilliseconds();
-
-		string musicSource = "";
-		if (musicSource != "")
-		{
-			music.openFromFile(musicSource);
-			music.play();
-		}
 
 		// Get if left mousekey is in pressed state or released state
 		if (event.type == sf::Event::MouseButtonPressed)
@@ -198,106 +183,61 @@ int main(int, const char**)
 
 
 		//----------------DEFINE CURRENT SCENE----------------//
-
-		//Scene 1 == 1
-		for (int i = 1; i < 3; i++)
-		{
-			//if player walks to the right -> get next scene to the right
-			if (player.sprite.getPosition().x >= window.getSize().x - 80)
-			{
-				// if last scene, start from scene 1
-				if (gameplay.sceneNumber == 3)
-					gameplay.sceneNumber = 1;
-				// else continue to next scene
-				else
-					gameplay.sceneNumber = gameplay.sceneNumber + 1;
-				// stop music in order to change
-				music.pause();
-				// define music source
-				music.openFromFile("Sounds\\music_" + to_string(gameplay.sceneNumber) + ".wav");
-				// set sprite position to the left of the screen
-				player.sprite.setPosition(1, player.sprite.getPosition().y);
-			}
-			//if player walks to the left -> get next scene to the left
-			if (player.sprite.getPosition().x <= window.getSize().x - window.getSize().x)
-			{
-				// change scene backwards 
-				if (gameplay.sceneNumber == 1)
-					gameplay.sceneNumber = 3;
-				else
-					gameplay.sceneNumber = gameplay.sceneNumber - 1;
-
-				music.pause();
-				music.openFromFile("Sounds\\music_" + to_string(gameplay.sceneNumber) + ".wav");
-				// set sprite position to the right of the screen
-				player.sprite.setPosition(window.getSize().x - 81, player.sprite.getPosition().y);
-			}
+		//if player walks to the right -> get next scene to the right
+		if (player.sprite.getPosition().x >= window.getSize().x - 80) {
+			// stop old music
+			scenes[gameplay.sceneNumber].bgMusic.stop();
+			// go to connected scene
+			gameplay.sceneNumber = scenes[gameplay.sceneNumber].sceneRight;
+			// start new music
+			scenes[gameplay.sceneNumber].bgMusic.play();			
+			// set sprite position to the left of the screen
+			player.sprite.setPosition(1, player.sprite.getPosition().y);
+		}
+		//if player walks to the left -> get next scene to the left
+		if (player.sprite.getPosition().x <= window.getSize().x - window.getSize().x) {
+			// stop old music
+			scenes[gameplay.sceneNumber].bgMusic.stop();
+			// go to connected scene
+			gameplay.sceneNumber = scenes[gameplay.sceneNumber].sceneLeft;
+			// start new music
+			scenes[gameplay.sceneNumber].bgMusic.play();
+			// set sprite position to the right of the screen
+			player.sprite.setPosition(window.getSize().x - 81, player.sprite.getPosition().y);
 		}
 
 		// Enable movement of player as soon as the first introduction lines have been shown
 		if (gameplay.introductionNumber != 1)
 			player.update();
 
-
-		//-------------------DRAW SCENE 1-------------------//
-		if (gameplay.sceneNumber == 1)
-		{
-			// change background music
-			if (music.getStatus() == sf::Sound::Status::Stopped)
-				music.play();
-
-			//Draw Background
-			window.draw(sprite_background);
-			//Draw all characters of scene 1
-			for (int i = 0; i < 7; i++)
-				window.draw(characters[i].sprite);
+		// draw current scene background
+		if (gameplay.sceneNumber < scenes.size()) {
+			window.draw(scenes[gameplay.sceneNumber].bgSprite);
 		}
 
 
-		//-------------------DRAW SCENE 2-------------------//
-		if (gameplay.sceneNumber == 2)
-		{
-			// change background music
-			if (music.getStatus() == sf::Sound::Status::Stopped)
-				music.play();
-
-			// Draw background
-			window.draw(sprite_background_2);
-
-			// draw characters of scene 2
-			window.draw(characters[7].sprite);
-
-			// show next introduction lines
-			if (gameplay.introductionNumber == 1)
-			{
+		//-------------------COUNT QUEST STEPS-------------------//
+		if (gameplay.sceneNumber == 1) {
+			if (gameplay.introductionNumber == 1) {
 				gameplay.introductionNumber = 2;
 				clock.restart();
 				textCharacter = 0;
 			}
 		}
 
-		//-------------------DRAW SCENE 3-------------------//
-		if (gameplay.sceneNumber == 3)
-		{
-			// change background music
-			if (music.getStatus() == sf::Sound::Status::Stopped)
-				music.play();
-
-			// Draw background
-			window.draw(sprite_background_3);
-
-			// Draw characters of scene 3
-			for (int i = 8; i < characters.size(); i++)
-				window.draw(characters[i].sprite);
-
-			if (gameplay.introductionNumber == 2)
-			{
+		if (gameplay.sceneNumber == 2) {
+			if (gameplay.introductionNumber == 2) {
 				gameplay.introductionNumber = 3;
 				clock.restart();
 				textCharacter = 0;
 			}
 		}
 
+		// draw characters dpending on the current scene
+		for (int i = 0; i < characters.size(); i++) {
+			if (characters[i].sceneNumber == gameplay.sceneNumber)
+				window.draw(characters[i].sprite);
+		}
 
 		//------------SETUP DIALOGUE SPEECHBOX---------//
 
