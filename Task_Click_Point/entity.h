@@ -44,7 +44,8 @@ public:
 
 	// if inventory is open, set to true
 	bool inventory = false;
-	int openInventory = 0; // count to open/close inventory
+	// count to open/close inventory -> I'm starting with 1 because the sound will only be played if counter is 0
+	int openInventory = 1; 
 	int openFile = 0;
 
 };

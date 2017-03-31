@@ -4,7 +4,11 @@ Player::Player()
 {
 	sprite.setTextureRect(sf::IntRect(32, 0, 32, 32));
 
-
+	step.loadFromFile("Sounds\\step.wav");
+	stepSound.setBuffer(step);
+	stepSound.setVolume(100);
+	stepSound.setPitch(2);
+	stepSound.setLoop(true);
 }
 
 
@@ -14,6 +18,9 @@ void Player::update()
 	// walk player left
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
+		if (stepSound.getStatus() != sf::Sound::Status::Playing)
+			stepSound.play();
+
 		walkingCounterPersistent++;
 		sprite.move(-moveSpeed, 0);
 		sprite.setTextureRect(sf::IntRect(walkingCounter * 32, 32 * 1, 32, 32));
@@ -21,17 +28,17 @@ void Player::update()
 	// walk player right
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
-		if (sprite.getPosition().x < window.getSize().x - 50)
-		{
-			sprite.move(moveSpeed, 0);
-		}
+		if (stepSound.getStatus() != sf::Sound::Status::Playing)
+			stepSound.play();
 		walkingCounterPersistent++;
+		sprite.move(moveSpeed, 0);
 		sprite.setTextureRect(sf::IntRect(walkingCounter * 32, 32 * 2, 32, 32));
 	}
 	// get front sprite if not walking
 	else
 	{
 		sprite.setTextureRect(sf::IntRect(32, 0, 32, 32));
+		stepSound.stop();
 	}
 
 

@@ -9,6 +9,9 @@ public:
 	int walkingCounter = 0;
 	int walkingCounterPersistent = 0;
 
+	sf::SoundBuffer step;
+	sf::Sound stepSound;
+
 	Player();
 	void update();
 
