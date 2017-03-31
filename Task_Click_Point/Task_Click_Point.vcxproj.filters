@@ -65,9 +65,6 @@
     <ClInclude Include="Inventory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Characters.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Sprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -79,9 +76,6 @@
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Dialogue.xml">
-      <Filter>Source Files</Filter>
-    </Xml>
-    <Xml Include="Characters.xml">
       <Filter>Source Files</Filter>
     </Xml>
     <Xml Include="Inventory.xml">

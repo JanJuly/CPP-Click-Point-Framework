@@ -15,7 +15,6 @@
 #include "targets.h"
 #include "random.h"
 #include "Dialogue.h"
-#include "Characters.h"
 #include "Inventory.h"
 #include "Sprite.h"
 

@@ -174,7 +174,6 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="random.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="Characters.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="targets.h" />
     <ClInclude Include="tilemap.h" />
@@ -183,7 +182,6 @@
     <ResourceCompile Include="Task_Click_Point.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="Characters.xml" />
     <Xml Include="Dialogue.xml">
       <SubType>Designer</SubType>
     </Xml>
