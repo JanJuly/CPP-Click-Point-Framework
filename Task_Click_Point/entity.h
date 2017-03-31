@@ -25,20 +25,17 @@ public:
 	sf::Vector2i mousePosition = sf::Mouse::getPosition(window);
 	sf::Event event;
 
-	
+
 	int textCounter = 0;
 	int timer;
 	sf::Clock clock;
 
-	// Set current scene to true
-	bool scene_1 = true;
-	bool scene_2 = false;
-	bool scene_3 = false;
+	// Set current scene number (starting with scene 1)
+	int sceneNumber = 1;
+	// Set current introduction phase (starting with phase 1)
+	int introductionNumber = 1;
+	int soundCounter = 0;
 
-	// Set current introduction lines to true
-	bool introduction_1 = true;
-	bool introduction_2 = false;
-	bool introduction_3 = false;
 
 	// set bool to true if guess is correct or false
 	bool correct = false;

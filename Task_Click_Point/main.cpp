@@ -73,6 +73,10 @@ int main(int, const char**)
 		items[s].sprite.setPosition(inventorySprites[s].xPos, inventorySprites[s].yPos);
 	}
 
+	// define dialogue string and text character amount
+	sf::String str = "";
+	int amountCharacters = 0;
+
 	// call entity class for gameplay state
 	class entity gameplay;
 
@@ -124,6 +128,21 @@ int main(int, const char**)
 
 	//setup background music
 	sf::Music music;
+	string musicSource = "Sounds\\music_1.wav";
+	music.openFromFile(musicSource);
+	music.play();
+	music.setVolume(20);
+	music.setLoop(true);
+
+	//setup sounds
+	sf::SoundBuffer buffer;
+	buffer.loadFromFile("Sounds\\key.ogg");
+	sf::Sound sound;
+	sound.setBuffer(buffer);
+	sound.setVolume(100);
+	sound.setPitch(1.3);
+	sound.setLoop(true);
+
 
 
 	//-----------------SETUP  PLAYER----------------//
@@ -180,44 +199,53 @@ int main(int, const char**)
 
 		//----------------DEFINE CURRENT SCENE----------------//
 
-		// If current scene is scene_1 and player walks to the right; active scene is scene_2
-		if (gameplay.scene_1 && player.sprite.getPosition().x >= window.getSize().x - 80)
+		//Scene 1 == 1
+		for (int i = 1; i < 3; i++)
 		{
-			gameplay.scene_1 = false;
-			gameplay.scene_2 = true;
-			player.sprite.setPosition(1, player.sprite.getPosition().y);
-		}
-		// If current scene is scene_2 and player walks to the left; active scene is scene_1
-		if (gameplay.scene_2 && player.sprite.getPosition().x <= window.getSize().x - window.getSize().x)
-		{
-			gameplay.scene_1 = true;
-			gameplay.scene_2 = false;
-			player.sprite.setPosition(window.getSize().x - 81, player.sprite.getPosition().y);
-		}
-		// if current scene is scene _2 and player walks to the right; active scene is Scene_3
-		if (gameplay.scene_2 && player.sprite.getPosition().x >= window.getSize().x - 80)
-		{
-			gameplay.scene_2 = false;
-			gameplay.scene_3 = true;
-			player.sprite.setPosition(1, player.sprite.getPosition().y);
-		}
-		// if current scene is scene_3 and player walks to the left; active scene is scene_2
-		if (gameplay.scene_3 && player.sprite.getPosition().x <= window.getSize().x - window.getSize().x)
-		{
-			gameplay.scene_2 = true;
-			gameplay.scene_3 = false;
-			player.sprite.setPosition(window.getSize().x - 81, player.sprite.getPosition().y);
+			//if player walks to the right -> get next scene to the right
+			if (player.sprite.getPosition().x >= window.getSize().x - 80)
+			{
+				// if last scene, start from scene 1
+				if (gameplay.sceneNumber == 3)
+					gameplay.sceneNumber = 1;
+				// else continue to next scene
+				else
+					gameplay.sceneNumber = gameplay.sceneNumber + 1;
+				// stop music in order to change
+				music.pause();
+				// define music source
+				music.openFromFile("Sounds\\music_" + to_string(gameplay.sceneNumber) + ".wav");
+				// set sprite position to the left of the screen
+				player.sprite.setPosition(1, player.sprite.getPosition().y);
+			}
+			//if player walks to the left -> get next scene to the left
+			if (player.sprite.getPosition().x <= window.getSize().x - window.getSize().x)
+			{
+				// change scene backwards 
+				if (gameplay.sceneNumber == 1)
+					gameplay.sceneNumber = 3;
+				else
+					gameplay.sceneNumber = gameplay.sceneNumber - 1;
+
+				music.pause();
+				music.openFromFile("Sounds\\music_" + to_string(gameplay.sceneNumber) + ".wav");
+				// set sprite position to the right of the screen
+				player.sprite.setPosition(window.getSize().x - 81, player.sprite.getPosition().y);
+			}
 		}
 
 		// Enable movement of player as soon as the first introduction lines have been shown
-		if (!gameplay.introduction_1)
+		if (gameplay.introductionNumber != 1)
 			player.update();
 
 
 		//-------------------DRAW SCENE 1-------------------//
-		if (gameplay.scene_1)
+		if (gameplay.sceneNumber == 1)
 		{
-			musicSource == "Sounds\\music_1.wav";
+			// change background music
+			if (music.getStatus() == sf::Sound::Status::Stopped)
+				music.play();
+
 			//Draw Background
 			window.draw(sprite_background);
 			//Draw all characters of scene 1
@@ -225,29 +253,36 @@ int main(int, const char**)
 				window.draw(characters[i].sprite);
 		}
 
+
 		//-------------------DRAW SCENE 2-------------------//
-		if (gameplay.scene_2)
+		if (gameplay.sceneNumber == 2)
 		{
-			musicSource == "Sounds\\canary.wav";
+			// change background music
+			if (music.getStatus() == sf::Sound::Status::Stopped)
+				music.play();
+
 			// Draw background
 			window.draw(sprite_background_2);
 
 			// draw characters of scene 2
 			window.draw(characters[7].sprite);
 
-			// show 
-			if (gameplay.introduction_1)
+			// show next introduction lines
+			if (gameplay.introductionNumber == 1)
 			{
+				gameplay.introductionNumber = 2;
 				clock.restart();
 				textCharacter = 0;
-				gameplay.introduction_1 = false;
-				gameplay.introduction_2 = true;
 			}
 		}
 
 		//-------------------DRAW SCENE 3-------------------//
-		if (gameplay.scene_3)
+		if (gameplay.sceneNumber == 3)
 		{
+			// change background music
+			if (music.getStatus() == sf::Sound::Status::Stopped)
+				music.play();
+
 			// Draw background
 			window.draw(sprite_background_3);
 
@@ -255,12 +290,11 @@ int main(int, const char**)
 			for (int i = 8; i < characters.size(); i++)
 				window.draw(characters[i].sprite);
 
-			if (gameplay.introduction_2)
+			if (gameplay.introductionNumber == 2)
 			{
+				gameplay.introductionNumber = 3;
 				clock.restart();
 				textCharacter = 0;
-				gameplay.introduction_2 = false;
-				gameplay.introduction_3 = true;
 			}
 		}
 
@@ -282,6 +316,11 @@ int main(int, const char**)
 		if (speechText.getString() != "")
 			window.draw(box);
 		window.draw(speechText);
+		//play key sound of dialogue
+		if (textCharacter <  amountCharacters && sound.getStatus() != sf::Sound::Status::Playing)
+			sound.play();
+		if (textCharacter >= amountCharacters)
+			sound.stop();
 
 
 		//---------------INVENTORY BEHAVIOUR----------------//
@@ -337,7 +376,7 @@ int main(int, const char**)
 		//-------------------INTRODUCTION 1-3 -------------------//
 
 		//Play Dialogue Phase of Introduction 1
-		if (gameplay.introduction_1)
+		if (gameplay.introductionNumber == 1)
 		{
 			// Start with first introdution line
 			for (int i = 0; i != dialogues.size(); i++)
@@ -348,10 +387,11 @@ int main(int, const char**)
 					if (textTimer >= 30 && textCharacter < dialogues[i].lines[dialogues[i].currentLine].text.length())
 					{
 						textCharacter++;
-						sf::String str = dialogues[i].lines[dialogues[i].currentLine].text;
+						str = dialogues[i].lines[dialogues[i].currentLine].text;
 						speechText.setString(str.substring(0, textCharacter));
 						clock.restart();
 					}
+
 					// Show next line while pressing Enter
 					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) && !keyDown &&
 						textCharacter == dialogues[i].lines[dialogues[i].currentLine].text.length()
@@ -367,9 +407,10 @@ int main(int, const char**)
 						player.update();
 					}
 				}
+			amountCharacters = str.getSize();
 		}
 		//Play Dialogue Phase of Introduction 2
-		if (gameplay.introduction_2)
+		if (gameplay.introductionNumber == 2)
 		{
 			// Start with first introdution line
 			for (int i = 0; i != dialogues.size(); i++)
@@ -384,15 +425,16 @@ int main(int, const char**)
 					if (textTimer >= 30 && textCharacter < dialogues[i].lines[dialogues[i].currentLine].text.length())
 					{
 						textCharacter++;
-						sf::String str = dialogues[i].lines[dialogues[i].currentLine].text;
+						str = dialogues[i].lines[dialogues[i].currentLine].text;
 						speechText.setString(str.substring(0, textCharacter));
 						clock.restart();
 					}
 				}
 			}
+			amountCharacters = str.getSize();
 		}
 		//Play Dialogue Phase of Introduction 3
-		if (gameplay.introduction_3)
+		if (gameplay.introductionNumber == 3)
 		{
 			// Start with first introdution line
 			for (int i = 0; i != dialogues.size(); i++)
@@ -406,7 +448,7 @@ int main(int, const char**)
 					if (textTimer >= 30 && textCharacter < dialogues[i].lines[dialogues[i].currentLine].text.length())
 					{
 						textCharacter++;
-						sf::String str = dialogues[i].lines[dialogues[i].currentLine].text;
+						str = dialogues[i].lines[dialogues[i].currentLine].text;
 						speechText.setString(str.substring(0, textCharacter));
 						clock.restart();
 					}
@@ -421,12 +463,12 @@ int main(int, const char**)
 							clock.restart();
 							textCharacter = 0;
 							currentQuest = 1;
-							gameplay.introduction_3 = false;
+							gameplay.introductionNumber = 0;
 						}
 					}
 				}
+			amountCharacters = str.getSize();
 		}
-
 
 		//------------------QUEST BEHAVIOUR---------------//
 
@@ -477,19 +519,21 @@ int main(int, const char**)
 			// Show quest text of the current character
 			if (!gameplay.correct && !gameplay.wrong && !gameplay.newItem && !gameplay.inventory)
 				for (int i = 0; i != dialogues.size(); i++)
+				{
 					// Look for the dialogueLine name that has the same Name as the character you're loooking for
 					if (dialogues[i].name == characterName)
 					{
 						// display text with animation
 						if (textTimer >= 30 && textCharacter < dialogues[i].lines[dialogues[i].currentLine].text.length() + 1)
 						{
-							sf::String str = dialogues[i].lines[dialogues[i].currentLine].text;
+							str = dialogues[i].lines[dialogues[i].currentLine].text;
 							speechText.setString(str.substring(0, textCharacter));
 							textCharacter++;
 							clock.restart();
 						}
 					}
 
+				}
 			if (mouseLeftDown && !gameplay.correct && !gameplay.inventory)
 			{
 				// If right character is found, return correct
@@ -514,7 +558,7 @@ int main(int, const char**)
 					if (dialogues[i].name == "Right")
 					{
 						// set str to "you found" + "Character name" + !
-						sf::String str = dialogues[i].lines[dialogues[i].currentLine].text + " " + characters[characterNumber].name + "! ...";
+						str = dialogues[i].lines[dialogues[i].currentLine].text + " " + characters[characterNumber].name + "! ...";
 						if (textTimer >= 30 && textCharacter < str.getSize())
 						{
 							speechText.setString(str.substring(0, textCharacter));
@@ -535,8 +579,8 @@ int main(int, const char**)
 			}
 			if (gameplay.newItem)
 			{
-				sf::String str = "You have a new letter in your inventory!\nPress [SPACE]";
-				if (textTimer >= 30 && textCharacter < str.getSize() + 1)
+				str = "You have a new letter in your inventory!\nPress [SPACE]";
+				if (textTimer >= 30 && textCharacter < str.getSize())
 				{
 					speechText.setString(str.substring(0, textCharacter));
 					textCharacter++;
@@ -556,7 +600,7 @@ int main(int, const char**)
 					if (dialogues[i].name == "Wrong")
 					{
 						// set str to "you found" + "Character name" + !
-						sf::String str = dialogues[i].lines[dialogues[i].currentLine].text;
+						str = dialogues[i].lines[dialogues[i].currentLine].text;
 						if (textTimer >= 30 && textCharacter < str.getSize() + 1)
 						{
 							speechText.setString(str.substring(0, textCharacter));
@@ -576,6 +620,7 @@ int main(int, const char**)
 					}
 
 			}
+			amountCharacters = str.getSize();
 		}
 
 		// Update walkcycle of each character existing
@@ -583,12 +628,9 @@ int main(int, const char**)
 			characters[i].walkCycle();
 		}
 
-
+		// display the newly calculated windoe output
 		window.display();
-
 	}
-
-
 	return 0;
 }
 
