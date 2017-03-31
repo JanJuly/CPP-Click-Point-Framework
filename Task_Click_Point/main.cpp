@@ -91,7 +91,7 @@ int main(int, const char**)
 
 	// define dialogue string and text character amount
 	sf::String str = "";
-	int amountCharacters = 0;
+	int amountTextChar = 0;
 
 	// call entity class for gameplay state
 	class entity gameplay;
@@ -125,13 +125,28 @@ int main(int, const char**)
 		window.getSize().y / 2 - inventorySprite.getLocalBounds().height / 2));
 
 	//setup sounds
-	sf::SoundBuffer buffer;
-	buffer.loadFromFile("Sounds\\key.ogg");
-	sf::Sound sound;
-	sound.setBuffer(buffer);
-	sound.setVolume(100);
-	sound.setPitch(1.3);
-	sound.setLoop(true);
+	sf::SoundBuffer key;
+	key.loadFromFile("Sounds\\key.ogg");
+	sf::Sound keySound;
+	keySound.setBuffer(key);
+	keySound.setVolume(30);
+	keySound.setPitch(1.3);
+	keySound.setLoop(true);
+
+	sf::SoundBuffer inventoryBuffer;
+	inventoryBuffer.loadFromFile("Sounds\\inventory.ogg");
+	sf::Sound inventorySound;
+	inventorySound.setBuffer(inventoryBuffer);
+	inventorySound.setVolume(30);
+	inventorySound.setPitch(1);
+
+	sf::SoundBuffer letterBuffer;
+	letterBuffer.loadFromFile("Sounds\\letter.ogg");
+	sf::Sound letterSound;
+	letterSound.setBuffer(letterBuffer);
+	letterSound.setVolume(30);
+	letterSound.setPitch(1);
+
 
 
 
@@ -257,10 +272,10 @@ int main(int, const char**)
 			window.draw(box);
 		window.draw(speechText);
 		//play key sound of dialogue
-		if (textCharacter <  amountCharacters && sound.getStatus() != sf::Sound::Status::Playing)
-			sound.play();
-		if (textCharacter >= amountCharacters)
-			sound.stop();
+		if (textCharacter <  amountTextChar && keySound.getStatus() != sf::Sound::Status::Playing)
+			keySound.play();
+		if (textCharacter >= amountTextChar || gameplay.inventory)
+			keySound.stop();
 
 
 		//---------------INVENTORY BEHAVIOUR----------------//
@@ -277,6 +292,8 @@ int main(int, const char**)
 			// if opened/closed reset counter
 			gameplay.openInventory = 0;
 		}
+		if (gameplay.openInventory == 0 && inventorySound.getStatus() != sf::Sound::Status::Playing)
+			inventorySound.play();
 
 		// If inventory if open
 		if (gameplay.inventory)
@@ -300,6 +317,8 @@ int main(int, const char**)
 				for (int i = 0; i < items.size(); i++) {
 					if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && mouse.intersects(items[i].sprite.getGlobalBounds())) {
 						if (items[i].owned) { // if item is drawn and active
+							if (letterSound.getStatus() != sf::Sound::Status::Playing)
+								letterSound.play();
 							gameplay.openFile = 0;
 							mouseLeftDown = false;
 							string fileName = "Documentation\\letter" + to_string(i + 1) + ".txt";
@@ -347,7 +366,7 @@ int main(int, const char**)
 						player.update();
 					}
 				}
-			amountCharacters = str.getSize();
+			amountTextChar = str.getSize();
 		}
 		//Play Dialogue Phase of Introduction 2
 		if (gameplay.introductionNumber == 2)
@@ -371,7 +390,7 @@ int main(int, const char**)
 					}
 				}
 			}
-			amountCharacters = str.getSize();
+			amountTextChar = str.getSize();
 		}
 		//Play Dialogue Phase of Introduction 3
 		if (gameplay.introductionNumber == 3)
@@ -407,7 +426,7 @@ int main(int, const char**)
 						}
 					}
 				}
-			amountCharacters = str.getSize();
+			amountTextChar = str.getSize();
 		}
 
 		//------------------QUEST BEHAVIOUR---------------//
@@ -560,7 +579,7 @@ int main(int, const char**)
 					}
 
 			}
-			amountCharacters = str.getSize();
+			amountTextChar = str.getSize();
 		}
 
 		// Update walkcycle of each character existing
