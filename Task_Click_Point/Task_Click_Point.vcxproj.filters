@@ -78,9 +78,6 @@
     <Xml Include="Dialogue.xml">
       <Filter>Source Files</Filter>
     </Xml>
-    <Xml Include="Inventory.xml">
-      <Filter>Source Files</Filter>
-    </Xml>
     <Xml Include="Sprites.xml">
       <Filter>Source Files</Filter>
     </Xml>

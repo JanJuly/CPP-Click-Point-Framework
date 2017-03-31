@@ -185,7 +185,6 @@
     <Xml Include="Dialogue.xml">
       <SubType>Designer</SubType>
     </Xml>
-    <Xml Include="Inventory.xml" />
     <Xml Include="Sprites.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

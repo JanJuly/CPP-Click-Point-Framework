@@ -135,4 +135,85 @@
     <xPos>410</xPos>
     <yPos>300</yPos>
   </Sprite>
+  <Sprite>
+    <spriteType>Letter</spriteType>
+    <name>Letter 1</name>
+    <location>Sprites\\letter.png</location>
+    <spriteWidth>0</spriteWidth>
+    <spriteHeight>0</spriteHeight>
+    <xPos>313</xPos>
+    <yPos>75</yPos>
+  </Sprite>
+  <Sprite>
+    <spriteType>Letter</spriteType>
+    <name>Letter 2</name>
+    <location>Sprites\\letter2.png</location>
+    <spriteWidth>0</spriteWidth>
+    <spriteHeight>0</spriteHeight>
+    <xPos>376</xPos>
+    <yPos>75</yPos>
+  </Sprite>
+  <Sprite>
+    <spriteType>Letter</spriteType>
+    <name>Letter 3</name>
+    <location>Sprites\\letter3.png</location>
+    <spriteWidth>0</spriteWidth>
+    <spriteHeight>0</spriteHeight>
+    <xPos>439</xPos>
+    <yPos>75</yPos>
+  </Sprite>
+  <Sprite>
+    <spriteType>Letter</spriteType>
+    <name>Letter 4</name>
+    <location>Sprites\\letter4.png</location>
+    <spriteWidth>0</spriteWidth>
+    <spriteHeight>0</spriteHeight>
+    <xPos>502</xPos>
+    <yPos>75</yPos>
+  </Sprite>
+  <Sprite>
+    <spriteType>Letter</spriteType>
+    <name>Letter 5</name>
+    <location>Sprites\\letter5.png</location>
+    <spriteWidth>0</spriteWidth>
+    <spriteHeight>0</spriteHeight>
+    <xPos>313</xPos>
+    <yPos>136</yPos>
+  </Sprite>
+  <Sprite>
+    <spriteType>Letter</spriteType>
+    <name>Letter 6</name>
+    <location>Sprites\\letter6.png</location>
+    <spriteWidth>0</spriteWidth>
+    <spriteHeight>0</spriteHeight>
+    <xPos>376</xPos>
+    <yPos>136</yPos>
+  </Sprite>
+  <Sprite>
+    <spriteType>Letter</spriteType>
+    <name>Letter 7</name>
+    <location>Sprites\\letter7.png</location>
+    <spriteWidth>0</spriteWidth>
+    <spriteHeight>0</spriteHeight>
+    <xPos>439</xPos>
+    <yPos>136</yPos>
+  </Sprite>
+  <Sprite>
+    <spriteType>Letter</spriteType>
+    <name>Letter 8</name>
+    <location>Sprites\\letter8.png</location>
+    <spriteWidth>0</spriteWidth>
+    <spriteHeight>0</spriteHeight>
+    <xPos>502</xPos>
+    <yPos>136</yPos>
+  </Sprite>
+  <Sprite>
+    <spriteType>Letter</spriteType>
+    <name>Letter 9</name>
+    <location>Sprites\\letter9.png</location>
+    <spriteWidth>0</spriteWidth>
+    <spriteHeight>0</spriteHeight>
+    <xPos>313</xPos>
+    <yPos>199</yPos>
+  </Sprite>
 </data>

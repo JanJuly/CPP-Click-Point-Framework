@@ -61,14 +61,17 @@ int main(int, const char**)
 		characters[s].sprite.setTexture(characters[s].texture);
 		characters[s].rect.setPosition(characterSprites[s].xPos, characterSprites[s].yPos);
 	}
-	// check debug
-	cout << "Available Characters:" << endl;
-	for (int i = 0; i < characters.size(); i++)
-		cout << characters[i].name << endl;
 
-	vector<inventoryContent> items(9); // create [c] copies of class for [n] letters
-	vector<inventoryTexture> inventories = ReadXmlInventory(); // includes all item attributes of inventory
-	class inventoryTexture inventory;
+	// inventory import
+	vector<SpriteContent> inventorySprites = ReadXmlSpriteContent("Letter");
+	vector<inventoryContent> items(inventorySprites.size());
+	// convert generic spritecontents into inventorycontents
+	for (int s = 0; s != items.size(); s++) {
+		items[s].textureName = inventorySprites[s].sourceFile;
+		items[s].texture.loadFromFile(items[s].textureName);
+		items[s].sprite.setTexture(items[s].texture);
+		items[s].sprite.setPosition(inventorySprites[s].xPos, inventorySprites[s].yPos);
+	}
 
 	// call entity class for gameplay state
 	class entity gameplay;
@@ -157,24 +160,6 @@ int main(int, const char**)
 		{
 			music.openFromFile(musicSource);
 			music.play();
-		}
-
-		// Setup all letter icons in inventory with texture and position
-		for (int i = 0; i != inventories.size(); i++)
-		{
-			if (inventories[i].name == "Letter" && inventories[i].currentSprite != inventories[i].attr.size())
-			{
-				for (int it = 0; it != items.size(); it++)
-				{
-					//items[it].LetterNumber = inventories[i].attr[inventories[i].currentSprite].spriteName;
-					items[it].textureName = inventories[i].attr[inventories[i].currentSprite].source;
-					items[it].texture.loadFromFile(items[it].textureName);
-					items[it].sprite.setTexture(items[it].texture);
-					items[it].sprite.setPosition(stoi(inventories[i].attr[inventories[i].currentSprite].xPos), stoi(inventories[i].attr[inventories[i].currentSprite].yPos));
-					inventories[i].currentSprite++;
-
-				}
-			}
 		}
 
 		// Get if left mousekey is in pressed state or released state
