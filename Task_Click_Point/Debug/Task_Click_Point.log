@@ -1,23 +1,33 @@
-﻿  targets.cpp
-c:\users\sarah\documents\programming_task\task_click_point\task_click_point\targets.cpp(7): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\sarah\documents\programming_task\task_click_point\task_click_point\targets.cpp(22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\sarah\documents\programming_task\task_click_point\task_click_point\targets.cpp(34): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\sarah\documents\programming_task\task_click_point\task_click_point\targets.cpp(37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\sarah\documents\programming_task\task_click_point\task_click_point\targets.cpp(44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\sarah\documents\programming_task\task_click_point\task_click_point\targets.cpp(47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\sarah\documents\programming_task\task_click_point\task_click_point\targets.cpp(54): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\sarah\documents\programming_task\task_click_point\task_click_point\targets.cpp(57): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\sarah\documents\programming_task\task_click_point\task_click_point\targets.cpp(65): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\sarah\documents\programming_task\task_click_point\task_click_point\targets.cpp(68): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\sarah\documents\programming_task\task_click_point\task_click_point\targets.cpp(71): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\sarah\documents\programming_task\task_click_point\task_click_point\targets.cpp(84): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  main.cpp
-c:\users\sarah\documents\programming_task\task_click_point\task_click_point\main.cpp(64): warning C4018: '<': signed/unsigned mismatch
-c:\users\sarah\documents\programming_task\task_click_point\task_click_point\main.cpp(187): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\sarah\documents\programming_task\task_click_point\task_click_point\main.cpp(188): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\sarah\documents\programming_task\task_click_point\task_click_point\main.cpp(199): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\sarah\documents\programming_task\task_click_point\task_click_point\main.cpp(200): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\sarah\documents\programming_task\task_click_point\task_click_point\main.cpp(223): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-  Generating Code...
-c:\users\sarah\documents\programming_task\task_click_point\task_click_point\main.cpp(89): warning C4715: 'ReadXMLNew': not all control paths return a value
-  Task_Click_Point.vcxproj -> C:\Users\sarah\Documents\Programming_Task\Task_Click_Point\Debug\Task_Click_Point.exe
+﻿  main.cpp
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\entity.h(63): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\entity.h(64): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\entity.h(75): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\entity.h(76): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\targets.h(17): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\dialogue.h(61): warning C4018: '<': signed/unsigned mismatch
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\characters.h(64): warning C4018: '<': signed/unsigned mismatch
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\inventory.h(68): warning C4018: '<': signed/unsigned mismatch
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\main.cpp(120): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\main.cpp(157): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\main.cpp(158): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\main.cpp(161): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\main.cpp(177): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\main.cpp(214): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\main.cpp(228): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\main.cpp(274): warning C4018: '<': signed/unsigned mismatch
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\main.cpp(328): warning C4018: '<': signed/unsigned mismatch
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\main.cpp(340): warning C4018: '<': signed/unsigned mismatch
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\main.cpp(367): warning C4018: '<': signed/unsigned mismatch
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\main.cpp(403): warning C4018: '<': signed/unsigned mismatch
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\main.cpp(425): warning C4018: '<': signed/unsigned mismatch
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\main.cpp(503): warning C4018: '<': signed/unsigned mismatch
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\main.cpp(537): warning C4018: '<': signed/unsigned mismatch
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\main.cpp(545): warning C4018: '>=': signed/unsigned mismatch
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\main.cpp(558): warning C4018: '<': signed/unsigned mismatch
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\main.cpp(579): warning C4018: '<': signed/unsigned mismatch
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\main.cpp(585): warning C4018: '>=': signed/unsigned mismatch
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\main.cpp(601): warning C4018: '<': signed/unsigned mismatch
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\dialogue.h(86): warning C4715: 'ReadXmlDialogue': not all control paths return a value
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\characters.h(94): warning C4715: 'ReadXmlSprite': not all control paths return a value
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\inventory.h(96): warning C4715: 'ReadXmlInventory': not all control paths return a value
+  Task_Click_Point.vcxproj -> C:\Users\sabz\Documents\Programming_Task\Programming_Task\Debug\Task_Click_Point.exe

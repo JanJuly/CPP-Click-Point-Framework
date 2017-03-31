@@ -30,6 +30,12 @@
     <ClCompile Include="random.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tilemap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="inventory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -47,6 +53,21 @@
     <ClInclude Include="random.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Dialogue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tilemap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Characters.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Task_Click_Point.rc">
@@ -57,7 +78,10 @@
     <Xml Include="Dialogue.xml">
       <Filter>Source Files</Filter>
     </Xml>
-    <Xml Include="Dialogue_Test.xml">
+    <Xml Include="Characters.xml">
+      <Filter>Source Files</Filter>
+    </Xml>
+    <Xml Include="Inventory.xml">
       <Filter>Source Files</Filter>
     </Xml>
   </ItemGroup>

@@ -1,11 +1,148 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<data>
-  <Dialogue name="Dialogue_Aladdin">
-    <DialogueLine speaker = "John" line = "Fuck You"/>
-    <DialogueLine speaker = "Mary" line = "Fuck You Too"/>
-  </Dialogue>
-  <Dialogue name="Dialogue_Chinese">
-    <DialogueLine speaker = "John" line = "Fuck You"/>
-    <DialogueLine speaker = "Mary" line = "Fuck You Too"/>
-  </Dialogue>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <DialogueLine>
+    <dialogueName>Introduction</dialogueName>
+    <speaker>Player</speaker>
+    <line>Hey! Welcome to my "Point And Click Engine" ...</line>
+  </DialogueLine>
+  <DialogueLine>
+    <dialogueName>Introduction</dialogueName>
+    <speaker>Player</speaker>
+    <line>Let me guide you through this ...</line>
+  </DialogueLine>
+  <DialogueLine>
+    <dialogueName>Introduction</dialogueName>
+    <speaker>Player</speaker>
+    <line>Can you walk to the right with the arrow keys?
+Or [A] [D]</line>
+  </DialogueLine>
+  
+  <DialogueLine>
+    <dialogueName>Introduction</dialogueName>
+    <speaker>Player</speaker>
+    <line>This looks different, but still the same.
+What if we even go a bit further to the right?</line>
+  </DialogueLine>
+  
+  <DialogueLine>
+    <dialogueName>Introduction</dialogueName>
+    <speaker>Player</speaker>
+    <line>I guess we have seen all worlds now ...</line>
+  </DialogueLine>
+  <DialogueLine>
+    <dialogueName>Introduction</dialogueName>
+    <speaker>Player</speaker>
+    <line>Anyway, I was wondering if you can help me? ...</line>
+  </DialogueLine>
+  <DialogueLine>
+    <dialogueName>Introduction</dialogueName>
+    <speaker>Player</speaker>
+    <line>I need to find 15 people. 
+I've heard they got something for me ...</line>
+  </DialogueLine>
+  <DialogueLine>
+    <dialogueName>Introduction</dialogueName>
+    <speaker>Player</speaker>
+    <line>See all the people in the background? 
+They should be somewhere in there ...</line>
+  </DialogueLine>
+
+  <DialogueLine>
+    <dialogueName>Wrong</dialogueName>
+    <speaker>Player</speaker>
+    <line>No, look further.</line>
+  </DialogueLine>
+  <DialogueLine>
+    <dialogueName>Wrong</dialogueName>
+    <speaker>Player</speaker>
+    <line>It's not the one I'm looking for.</line>
+  </DialogueLine>
+  <DialogueLine>
+    <dialogueName>Wrong</dialogueName>
+    <speaker>Player</speaker>
+    <line>That's not the correct person.</line>
+  </DialogueLine>
+  <DialogueLine>
+    <dialogueName>Wrong</dialogueName>
+    <speaker>Player</speaker>
+    <line>Wrong person.</line>
+  </DialogueLine>
+
+  <DialogueLine>
+    <dialogueName>Right</dialogueName>
+    <speaker>Player</speaker>
+    <line>You found</line>
+  </DialogueLine>
+
+  <DialogueLine>
+    <dialogueName>Inventory</dialogueName>
+    <speaker>Player</speaker>
+    <line></line>
+  </DialogueLine>
+  <DialogueLine>
+    <dialogueName>Inventory</dialogueName>
+    <speaker>Player</speaker>
+    <line></line>
+  </DialogueLine>
+
+  <DialogueLine>
+    <dialogueName>Aladdin</dialogueName>
+    <speaker>Player</speaker>
+    <line>The first person is someone named "Aladdin". </line>
+  </DialogueLine>
+  <DialogueLine>
+    <dialogueName>Hulk</dialogueName>
+    <speaker>Player</speaker>
+    <line>Next one. Have you heard of someone
+named "Hulk"?</line>
+  </DialogueLine>
+  <DialogueLine>
+    <dialogueName>Snow White</dialogueName>
+    <speaker>Player</speaker>
+    <line>Let's continue.
+I heard she likes apples.</line>
+  </DialogueLine>
+  <DialogueLine>
+    <dialogueName>Chewbacca</dialogueName>
+    <speaker>Player</speaker>
+    <line>Next!
+I hope you've seen Starwars?</line>
+  </DialogueLine>
+  <DialogueLine>
+    <dialogueName>Bride</dialogueName>
+    <speaker>Player</speaker>
+    <line>Let's look further.
+The person I'm looking for got married today.</line>
+  </DialogueLine>
+  <DialogueLine>
+    <dialogueName>Captain America</dialogueName>
+    <speaker>Player</speaker>
+    <line>Ok! You might not believe it,
+but this persons is the captain of a whole continent.</line>
+  </DialogueLine>
+  <DialogueLine>
+    <dialogueName>Vadim</dialogueName>
+    <speaker>Player</speaker>
+    <line>Can you find the next one for me?
+Forgot his name...It's this creature you can't overlook. </line>
+  </DialogueLine>
+  <DialogueLine>
+    <dialogueName>Rocket</dialogueName>
+    <speaker>Player</speaker>
+    <line>By the way,
+have you seen Guardians of the Galaxy?</line>
+  </DialogueLine>
+  <DialogueLine>
+    <dialogueName>Indiana Jones</dialogueName>
+    <speaker>Player</speaker>
+    <line>Now I'm looking for Mr. Jones.</line>
+  </DialogueLine>
+  <DialogueLine>
+    <dialogueName>Dead Pool</dialogueName>
+    <speaker>Player</speaker>
+    <line>So.. I've heard that this person
+died in the pool. Get it?</line>
+  </DialogueLine>
+  
 </data>

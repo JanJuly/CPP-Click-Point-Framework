@@ -5,13 +5,11 @@
 class Player : public entity
 {
 public:
-	float moveSpeed = 0.01f;
+	float moveSpeed = 3;
 	int walkingCounter = 0;
-	int walkingCounterPersistent;
-	int refreshSpeed = 20;
-	bool isMoving = false;
+	int walkingCounterPersistent = 0;
+
 	Player();
 	void update();
-	void updateMove();
 
 };
