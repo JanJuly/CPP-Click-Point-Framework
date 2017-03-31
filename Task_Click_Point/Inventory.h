@@ -20,7 +20,7 @@ public:
 	sf::Texture texture;
 	sf::Sprite sprite;
 	string textureName;
-	string LetterNumber;
+	// string LetterNumber;
 	bool owned = false;
 };
 

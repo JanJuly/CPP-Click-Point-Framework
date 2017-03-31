@@ -175,6 +175,7 @@
     <ClInclude Include="random.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Characters.h" />
+    <ClInclude Include="Sprite.h" />
     <ClInclude Include="targets.h" />
     <ClInclude Include="tilemap.h" />
   </ItemGroup>
@@ -187,6 +188,7 @@
       <SubType>Designer</SubType>
     </Xml>
     <Xml Include="Inventory.xml" />
+    <Xml Include="Sprites.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -17,6 +17,7 @@
 #include "Dialogue.h"
 #include "Characters.h"
 #include "Inventory.h"
+#include "Sprite.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -49,10 +50,22 @@ int main(int, const char**)
 	vector<Dialogue> dialogues = ReadXmlDialogue(); // includes all dialogue and quest lines
 	class Dialogue dialogue;
 
-	vector<spriteTexture> sprites = ReadXmlSprite(); // includes all characters attributes
-	int size = sprites[0].attr.size();
-	vector<targets> characters(size); // create [n] copies of class for [n] characters
-	class spriteTexture spriteTexture;
+	// characters import
+	vector<SpriteContent> characterSprites = ReadXmlSpriteContent("Character");
+	vector<targets> characters(characterSprites.size());
+	// convert generic spritecontents into target
+	for (int s = 0; s != characters.size(); s++) {
+		characters[s].name = characterSprites[s].name;
+		characters[s].height = characterSprites[s].spriteHeight;
+		characters[s].width = characterSprites[s].spriteWidth;
+		characters[s].texture.loadFromFile(characterSprites[s].sourceFile);
+		characters[s].sprite.setTexture(characters[s].texture);
+		characters[s].rect.setPosition(characterSprites[s].xPos, characterSprites[s].yPos);
+	}
+	// check debug
+	cout << "Available Characters:" << endl;
+	for (int i = 0; i < characters.size(); i++)
+		cout << characters[i].name << endl;
 
 	vector<inventoryContent> items(9); // create [c] copies of class for [n] letters
 	vector<inventoryTexture> inventories = ReadXmlInventory(); // includes all item attributes of inventory
@@ -147,23 +160,6 @@ int main(int, const char**)
 			music.play();
 		}
 
-		// Setup all characters with individual attributes
-		for (int s = 0; s != sprites.size(); s++)
-		{
-			if (sprites[s].name == "Character" && sprites[s].currentChar != sprites[s].attr.size())
-			{
-				for (int c = 0; c != characters.size(); c++)
-				{
-					characters[c].name = sprites[s].attr[sprites[s].currentChar].charName;
-					characters[c].height = stoi(sprites[s].attr[sprites[s].currentChar].spriteHeight);
-					characters[c].width = stoi(sprites[s].attr[sprites[s].currentChar].spriteWidth);
-					characters[c].texture.loadFromFile(sprites[s].attr[sprites[s].currentChar].spriteLocation);
-					characters[c].sprite.setTexture(characters[c].texture);
-					characters[c].rect.setPosition(stoi(sprites[s].attr[sprites[s].currentChar].xPos), stoi(sprites[s].attr[sprites[s].currentChar].yPos));
-					sprites[s].currentChar++;
-				}
-			}
-		}
 		// Setup all letter icons in inventory with texture and position
 		for (int i = 0; i != inventories.size(); i++)
 		{
@@ -171,7 +167,7 @@ int main(int, const char**)
 			{
 				for (int it = 0; it != items.size(); it++)
 				{
-					items[it].LetterNumber = inventories[i].attr[inventories[i].currentSprite].spriteName;
+					//items[it].LetterNumber = inventories[i].attr[inventories[i].currentSprite].spriteName;
 					items[it].textureName = inventories[i].attr[inventories[i].currentSprite].source;
 					items[it].texture.loadFromFile(items[it].textureName);
 					items[it].sprite.setTexture(items[it].texture);

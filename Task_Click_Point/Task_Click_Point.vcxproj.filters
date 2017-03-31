@@ -68,6 +68,9 @@
     <ClInclude Include="Characters.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Task_Click_Point.rc">
@@ -82,6 +85,9 @@
       <Filter>Source Files</Filter>
     </Xml>
     <Xml Include="Inventory.xml">
+      <Filter>Source Files</Filter>
+    </Xml>
+    <Xml Include="Sprites.xml">
       <Filter>Source Files</Filter>
     </Xml>
   </ItemGroup>
