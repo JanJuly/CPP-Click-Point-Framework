@@ -1,0 +1,10 @@
+Sarah:
+See all the characters? In my head it should have been double the amount.
+But here's the thing; since I let them walk around super randomly, they very
+often overlap eachother. The order of the drawn size is ofcourse decided in 
+which order your write the draw function. 
+For them to actually switch the position, I have to get the sprites y.position
+and compare it to the other sprites y position. With this information I should
+either push the draw function of the sprite back or forward. 
+In theory this sounds super easy. I wouldn't say it necessarily is..
+But where's the time?

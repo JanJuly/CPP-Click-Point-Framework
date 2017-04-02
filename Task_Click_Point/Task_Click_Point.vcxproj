@@ -163,7 +163,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="random.cpp" />
-    <ClCompile Include="targets.cpp" />
+    <ClCompile Include="Character.cpp" />
     <ClCompile Include="tilemap.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -174,8 +174,9 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="random.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="Sprite.h" />
-    <ClInclude Include="targets.h" />
+    <ClInclude Include="Character.h" />
     <ClInclude Include="tilemap.h" />
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +186,7 @@
     <Xml Include="Dialogue.xml">
       <SubType>Designer</SubType>
     </Xml>
+    <Xml Include="Scenes.xml" />
     <Xml Include="Sprites.xml">
       <SubType>Designer</SubType>
     </Xml>

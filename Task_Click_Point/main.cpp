@@ -12,7 +12,7 @@
 
 #include "entity.h"
 #include "Player.h"
-#include "targets.h"
+#include "Character.h"
 #include "random.h"
 #include "Dialogue.h"
 #include "Inventory.h"
@@ -66,13 +66,14 @@ int main(int, const char**)
 
 	// characters import
 	vector<SpriteContent> characterSprites = ReadXmlSpriteContent("Character");
-	vector<targets> characters(characterSprites.size());
-	// convert generic spritecontents into target
+	vector<Character> characters(characterSprites.size());
+	// convert generic spritecontents into Character
 	for (int s = 0; s != characters.size(); s++) {
 		characters[s].name = characterSprites[s].name;
 		characters[s].height = characterSprites[s].spriteHeight;
 		characters[s].width = characterSprites[s].spriteWidth;
 		characters[s].sceneNumber = characterSprites[s].scene;
+		characters[s].item = characterSprites[s].item;
 		characters[s].texture.loadFromFile(characterSprites[s].sourceFile);
 		characters[s].sprite.setTexture(characters[s].texture);
 		characters[s].rect.setPosition(characterSprites[s].xPos, characterSprites[s].yPos);
@@ -92,6 +93,9 @@ int main(int, const char**)
 	// define dialogue string and text character amount
 	sf::String str = "";
 	int amountTextChar = 0;
+
+	//get number of mistakes for guesses
+	int mistakes = 0;
 
 	// call entity class for gameplay state
 	class entity gameplay;
@@ -144,7 +148,7 @@ int main(int, const char**)
 	letterBuffer.loadFromFile("Sounds\\letter.ogg");
 	sf::Sound letterSound;
 	letterSound.setBuffer(letterBuffer);
-	letterSound.setVolume(30);
+	letterSound.setVolume(100);
 	letterSound.setPitch(1);
 
 
@@ -205,7 +209,7 @@ int main(int, const char**)
 			// go to connected scene
 			gameplay.sceneNumber = scenes[gameplay.sceneNumber].sceneRight;
 			// start new music
-			scenes[gameplay.sceneNumber].bgMusic.play();			
+			scenes[gameplay.sceneNumber].bgMusic.play();
 			// set sprite position to the left of the screen
 			player.sprite.setPosition(1, player.sprite.getPosition().y);
 		}
@@ -272,7 +276,7 @@ int main(int, const char**)
 			window.draw(box);
 		window.draw(speechText);
 		//play key sound of dialogue
-		if (textCharacter <  amountTextChar && keySound.getStatus() != sf::Sound::Status::Playing)
+		if (textCharacter < amountTextChar && keySound.getStatus() != sf::Sound::Status::Playing)
 			keySound.play();
 		if (textCharacter >= amountTextChar || gameplay.inventory)
 			keySound.stop();
@@ -282,7 +286,7 @@ int main(int, const char**)
 
 		// enable counter to open/close inventory, prevents of closing and opening too fast
 		gameplay.openInventory++;
-		if (gameplay.openInventory >= 20 && sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && currentQuest >= 1)
+		if (gameplay.openInventory >= 20 && sf::Keyboard::isKeyPressed(sf::Keyboard::E) && currentQuest >= 1)
 		{
 			if (!gameplay.inventory)
 				gameplay.inventory = true; //open Inventory
@@ -300,10 +304,10 @@ int main(int, const char**)
 		{
 			// Draw inventory template background
 			window.draw(inventorySprite);
-
-			// Draw Items according to amount of quest numbers fullfilled
+			gameplay.wrong = false;
+			// Draw Items according to amount of items received
 			for (int i = 0; i < items.size(); i++) {
-				if (currentQuest >= i + 2) {
+				if (gameplay.numberItems >= i) {
 					items[i].owned = true;
 					window.draw(items[i].sprite);
 				}
@@ -352,7 +356,7 @@ int main(int, const char**)
 					}
 
 					// Show next line while pressing Enter
-					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) && !keyDown &&
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && !keyDown &&
 						textCharacter == dialogues[i].lines[dialogues[i].currentLine].text.length()
 						&& dialogues[i].currentLine != 2)
 					{
@@ -414,10 +418,10 @@ int main(int, const char**)
 					// Show next line while pressing Enter
 					if (textCharacter == dialogues[i].lines[dialogues[i].currentLine].text.length())
 					{
-						if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) && !keyDown
+						if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && !keyDown
 							&& dialogues[i].currentLine != dialogues[i].lines.size() - 1)
 							textCharacter = 0;
-						if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) && !keyDown
+						if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && !keyDown
 							&& dialogues[i].currentLine == dialogues[i].lines.size() - 1) {
 							clock.restart();
 							textCharacter = 0;
@@ -430,51 +434,19 @@ int main(int, const char**)
 		}
 
 		//------------------QUEST BEHAVIOUR---------------//
-
-		if (currentQuest == 1) { // If quest number is 1
-			characterName = characters[0].name; // Set the characterName to the same name as in DialogueLine
-			characterNumber = 0; // Get number of current character
-		}
-		if (currentQuest == 2) {
-			characterName = characters[5].name;
-			characterNumber = 5;
-		}
-		if (currentQuest == 3) {
-			characterName = characters[6].name;
-			characterNumber = 6;
-		}
-		if (currentQuest == 4) {
-			characterName = characters[11].name;
-			characterNumber = 11;
-		}
-		if (currentQuest == 5) {
-			characterName = characters[9].name;
-			characterNumber = 9;
-		}
-		if (currentQuest == 6) {
-			characterName = characters[10].name;
-			characterNumber = 10;
-		}
-		if (currentQuest == 7) {
-			characterName = characters[7].name;
-			characterNumber = 7;
-		}
-		if (currentQuest == 8) {
-			characterName = characters[14].name;
-			characterNumber = 14;
-		}
-		if (currentQuest == 9) {
-			characterName = characters[13].name;
-			characterNumber = 13;
-		}
-		if (currentQuest == 10) {
-			characterName = characters[12].name;
-			characterNumber = 12;
+		//for each quest number get the character belonging to the quest
+		for (int i = 1; i < 17; i++)
+		{
+			if (currentQuest == i) {
+				characterName = characters[i - 1].name;
+				characterNumber = i - 1;
+			}
 		}
 
 		// Loop through all quests depending on currentQuest number
 		if (currentQuest != 0)
 		{
+			cout << mistakes << endl;
 			// Show quest text of the current character
 			if (!gameplay.correct && !gameplay.wrong && !gameplay.newItem && !gameplay.inventory)
 				for (int i = 0; i != dialogues.size(); i++)
@@ -493,17 +465,17 @@ int main(int, const char**)
 					}
 
 				}
-			if (mouseLeftDown && !gameplay.correct && !gameplay.inventory)
+			if (mouseLeftDown && !gameplay.correct && amountTextChar == str.getSize())
 			{
 				// If right character is found, return correct
-				if (mouse.intersects(characters[characterNumber].sprite.getGlobalBounds()))
+				if (mouse.intersects(characters[characterNumber].sprite.getGlobalBounds()) && !gameplay.inventory)
 				{
 					textCharacter = 0;
 					gameplay.wrong = false;
 					gameplay.correct = true;
 				}
 				// If clicked on wrong character, return wrong 
-				if (!mouse.intersects(characters[characterNumber].sprite.getGlobalBounds()))
+				else if (!mouse.intersects(characters[characterNumber].sprite.getGlobalBounds()) && !gameplay.inventory)
 				{
 					gameplay.correct = false;
 					gameplay.wrong = true;
@@ -525,61 +497,107 @@ int main(int, const char**)
 							clock.restart();
 						}
 						// If enter is pressed, continue with next quest
-						if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) && !keyDown
+						if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && !keyDown
 							&& textCharacter >= str.getSize())
 						{
-							//add quest number
-							currentQuest = currentQuest + 1;
 							// show new Item text
 							gameplay.newItem = true;
 							gameplay.correct = false;
 						}
 					}
-			}
-			if (gameplay.newItem)
+			} // chech if character that has been found contained an item
+			// if yes add item to inventory
+			if (gameplay.newItem && !gameplay.correct && !gameplay.wrong)
 			{
-				str = "You have a new letter in your inventory!\nPress [SPACE]";
-				if (textTimer >= 30 && textCharacter < str.getSize())
+				for (int i = 0; i < characters.size(); i++)
 				{
-					speechText.setString(str.substring(0, textCharacter));
-					textCharacter++;
-					clock.restart();
-				}
-
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && gameplay.inventory)
-				{
-					textCharacter = 0;
-					gameplay.newItem = false;
-				}
-
-			}
-			if (gameplay.wrong && !gameplay.inventory)
-			{
-				for (int i = 0; i != dialogues.size(); i++)
-					if (dialogues[i].name == "Wrong")
-					{
-						// set str to "you found" + "Character name" + !
-						str = dialogues[i].lines[dialogues[i].currentLine].text;
-						if (textTimer >= 30 && textCharacter < str.getSize() + 1)
+					if (characters[i].name == characterName)
+						if (characters[i].item == 1)
 						{
-							speechText.setString(str.substring(0, textCharacter));
-							textCharacter++;
-							clock.restart();
+							str = "You have a new letter in your inventory!\nPress [E] ";
+							if (textTimer >= 30 && textCharacter < str.getSize()) {
+								speechText.setString(str.substring(0, textCharacter));
+								textCharacter++;
+								clock.restart();
+							}
+							if (sf::Keyboard::isKeyPressed(sf::Keyboard::E) && gameplay.inventory) {
+								// add item
+								gameplay.numberItems = gameplay.numberItems + 1;
+								// add quest number
+								currentQuest = currentQuest + 1;
+								textCharacter = 0;
+								gameplay.newItem = false;
+							}
 						}
-						if (textCharacter >= str.getSize() && mouseLeftDown &&
-							!mouse.intersects(characters[characterNumber].sprite.getGlobalBounds()))
-						{
+						else if (characters[i].item == 0) {
+							//add quest number
+							currentQuest = currentQuest + 1;
 							textCharacter = 0;
-							if (dialogues[i].currentLine == dialogues[i].lines.size() - 1)
-								dialogues[i].currentLine = -1;
-
-							if (dialogues[i].currentLine != dialogues[i].lines.size() - 1)
-								dialogues[i].currentLine++;
+							gameplay.newItem = false;
+						}
+				}
+			}
+			if (gameplay.wrong && !gameplay.inventory && !gameplay.newItem)
+			{
+				if (mistakes == 4)
+					for (int i = 0; i != dialogues.size(); i++)
+					{
+						// Look for the dialogueLine name that has the same Name as the character you're loooking for
+						if (dialogues[i].name == characterName)
+						{
+							// display text with animation
+							if (textTimer >= 30 && textCharacter < dialogues[i].lines[dialogues[i].currentLine].text.length() + 1)
+							{
+								str = dialogues[i].lines[dialogues[i].currentLine].text;
+								speechText.setString(str.substring(0, textCharacter));
+								textCharacter++;
+								clock.restart();
+							}
+							if(textCharacter >= str.getSize() && mouseLeftDown &&
+								!mouse.intersects(characters[characterNumber].sprite.getGlobalBounds()))
+							{
+								textCharacter = 0;
+								mistakes = 0;
+							}
 						}
 					}
+				if (mistakes != 4)
+				{
+					for (int i = 0; i != dialogues.size(); i++)
+						if (dialogues[i].name == "Wrong")
+						{
+							// set str to "you found" + "Character name" + !
+							str = dialogues[i].lines[dialogues[i].currentLine].text;
+							if (textTimer >= 30 && textCharacter < str.getSize() + 1)
+							{
+								speechText.setString(str.substring(0, textCharacter));
+								textCharacter++;
+								clock.restart();
+							}
+							if (textCharacter >= str.getSize() && mouseLeftDown &&
+								!mouse.intersects(characters[characterNumber].sprite.getGlobalBounds()))
+							{
+								textCharacter = 0;
+								if (dialogues[i].currentLine == dialogues[i].lines.size() - 1)
+									dialogues[i].currentLine = -1;
+
+								if (dialogues[i].currentLine != dialogues[i].lines.size() - 1)
+								{
+									mistakes = mistakes + 1;
+									dialogues[i].currentLine++;
+								}
+							}
+						}
+				}
+
 
 			}
 			amountTextChar = str.getSize();
+		}
+
+		if (currentQuest == 16)
+		{
+
 		}
 
 		// Update walkcycle of each character existing

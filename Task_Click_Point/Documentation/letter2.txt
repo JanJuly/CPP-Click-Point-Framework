@@ -1,0 +1,6 @@
+Sarah: 
+I know, if I only had spend double the amount of time in this, it would be much
+better. Though I wouldn't say that I'm not satisfied with the result.
+
+There's still some bugs that I couldn't fix in time, some messy and especially
+ugly hardcoded parts. Sometimes too few comments. But hey.. it's working.

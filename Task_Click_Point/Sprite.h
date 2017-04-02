@@ -26,6 +26,8 @@ public:
 	int yPos;
 	// eventually the scene in which the sprite should be displayed
 	int scene;
+	// does the character contain an item?
+	int item;
 };
 
 vector<SpriteContent> ReadXmlSpriteContent(string type) {
@@ -51,6 +53,7 @@ vector<SpriteContent> ReadXmlSpriteContent(string type) {
 			c.xPos = stoi(sprites->first_node("xPos")->value());
 			c.yPos = stoi(sprites->first_node("yPos")->value());
 			c.scene = stoi(sprites->first_node("scene")->value());
+			c.item = stoi(sprites->first_node("item")->value());
 			// push sprite to temporary vector
 			temp.push_back(c);
 		}

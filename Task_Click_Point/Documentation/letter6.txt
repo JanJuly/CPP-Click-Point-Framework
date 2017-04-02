@@ -1,0 +1,5 @@
+Sarah:
+I just hope everything is readable. If not please contact me :)
+I created three different XML files (1 for all sprites, 2 for the scene setup,
+3 for the Dialogue content). Everything else just consists of a bunch of headers
+and cpp files.

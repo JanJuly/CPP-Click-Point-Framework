@@ -1,0 +1,7 @@
+Sarah:
+What I'm also super proud of is the text letter animation.
+Why? Since I'm used to working with unity or other engines, stuff like this
+was very quick and easy to implement.
+But actually, having to code every single thing, shows you that there is much
+more behind it.
+The same with changing the scenes and drawing their specific textures.

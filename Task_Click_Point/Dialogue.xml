@@ -4,7 +4,7 @@
   <DialogueLine>
     <dialogueName>Introduction</dialogueName>
     <speaker>Player</speaker>
-    <line>Hey! Welcome to my "Point And Click Engine" ...</line>
+    <line>Hey! Welcome to my "Point And Click Engine" ... [SPACE]</line>
   </DialogueLine>
   <DialogueLine>
     <dialogueName>Introduction</dialogueName>
@@ -107,7 +107,7 @@ I heard she likes apples.</line>
     <dialogueName>Chewbacca</dialogueName>
     <speaker>Player</speaker>
     <line>Next!
-I hope you've seen Starwars?</line>
+I hope you know Chewbacca?</line>
   </DialogueLine>
   <DialogueLine>
     <dialogueName>Bride</dialogueName>
@@ -143,6 +143,38 @@ have you seen Guardians of the Galaxy?</line>
     <speaker>Player</speaker>
     <line>So.. I've heard that this person
 died in the pool. Get it?</line>
+  </DialogueLine>
+  <DialogueLine>
+    <dialogueName>Wizzard</dialogueName>
+    <speaker>Player</speaker>
+    <line>Let's go on. I'm looking for the wizzard!</line>
+  </DialogueLine>
+  <DialogueLine>
+    <dialogueName>Titan</dialogueName>
+    <speaker>Player</speaker>
+    <line>Ok! I'm looking for the titan.
+Heard he looks pretty naked.</line>
+  </DialogueLine>
+  <DialogueLine>
+    <dialogueName>Sailor Moon</dialogueName>
+    <speaker>Player</speaker>
+    <line>Ever heard of Sailor Moon?</line>
+  </DialogueLine>
+  <DialogueLine>
+    <dialogueName>Yoda</dialogueName>
+    <speaker>Player</speaker>
+    <line>"You finding person next me for?"</line>
+  </DialogueLine>
+  <DialogueLine>
+    <dialogueName>Death</dialogueName>
+    <speaker>Player</speaker>
+    <line>The last one is going to end
+with our lifes.</line>
+  </DialogueLine>
+  <DialogueLine>
+    <dialogueName>End</dialogueName>
+    <speaker>Player</speaker>
+    <line>Thank you for playing!</line>
   </DialogueLine>
   
 </data>

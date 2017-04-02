@@ -34,7 +34,8 @@ public:
 	int sceneNumber = 0;
 	// Set current introduction phase (starting with phase 1)
 	int introductionNumber = 1;
-	int soundCounter = 0;
+	// Set Itemnumber that are active
+	int numberItems = 0;
 
 
 	// set bool to true if guess is correct or false
