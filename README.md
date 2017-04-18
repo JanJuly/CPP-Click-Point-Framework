@@ -1,8 +1,8 @@
 # Programming_Task
 Semester Assignment - Point & Click RPG with C++ & SFML
 
-Framework Video: https://drive.google.com/file/d/0Bxu7xYejDL-IZmVOT2xYTkhwSWs/view?usp=sharing
-For a detailed code documentation, please check out following link:
+- Framework Video: https://drive.google.com/file/d/0Bxu7xYejDL-IZmVOT2xYTkhwSWs/view?usp=sharing
+- For a detailed code documentation, please check out following link:
 https://docs.google.com/document/d/13n9XH2TOkyFZubeETHVpoYWGTgehpJQzzFm7kC6hb-0/edit?usp=sharing
 
 This SFML (Visual Studio) Project was part of my university assignment task. 
