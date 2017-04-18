@@ -1,5 +1,75 @@
-﻿  main.cpp
+﻿  entity.cpp
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\entity.h(63): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\entity.h(64): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\entity.h(75): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\entity.h(76): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  inventory.cpp
+  main.cpp
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\entity.h(63): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\entity.h(64): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\entity.h(75): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\entity.h(76): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\Character.h(21): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\Dialogue.h(61): warning C4018: '<': signed/unsigned mismatch
+main.cpp(51): warning C4018: '<': signed/unsigned mismatch
+main.cpp(68): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+main.cpp(69): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+main.cpp(74): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+main.cpp(85): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+main.cpp(130): warning C4305: 'argument': truncation from 'double' to 'float'
+main.cpp(157): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+main.cpp(218): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+main.cpp(226): warning C4018: '<': signed/unsigned mismatch
+main.cpp(233): warning C4018: '<': signed/unsigned mismatch
+main.cpp(256): warning C4018: '<': signed/unsigned mismatch
+main.cpp(258): warning C4018: '>=': signed/unsigned mismatch
+main.cpp(295): warning C4018: '<': signed/unsigned mismatch
+main.cpp(307): warning C4018: '<': signed/unsigned mismatch
+main.cpp(389): warning C4018: '>=': signed/unsigned mismatch
+main.cpp(414): warning C4018: '>=': signed/unsigned mismatch
+main.cpp(426): warning C4018: '>=': signed/unsigned mismatch
+main.cpp(449): warning C4018: '<': signed/unsigned mismatch
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\rapidxml_utils.hpp(40): warning C4244: 'initializing': conversion from 'std::streamoff' to 'size_t', possible loss of data
+  c:\users\sabz\documents\programming_task\programming_task\task_click_point\rapidxml_utils.hpp(28): note: while compiling class template member function 'rapidxml::file<char>::file(const char *)'
+  c:\users\sabz\documents\programming_task\programming_task\task_click_point\Sprite.h(35): note: see reference to function template instantiation 'rapidxml::file<char>::file(const char *)' being compiled
+  c:\users\sabz\documents\programming_task\programming_task\task_click_point\Sprite.h(35): note: see reference to class template instantiation 'rapidxml::file<char>' being compiled
+  Player.cpp
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\entity.h(63): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\entity.h(64): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\entity.h(75): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\entity.h(76): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  random.cpp
+random.cpp(6): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+random.cpp(7): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+random.cpp(14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+random.cpp(15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+random.cpp(22): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+random.cpp(23): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  Character.cpp
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\entity.h(63): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\entity.h(64): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\entity.h(75): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\entity.h(76): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\Character.h(21): warning C4305: 'initializing': truncation from 'double' to 'float'
+Character.cpp(7): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+Character.cpp(22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+Character.cpp(33): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+Character.cpp(37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+Character.cpp(44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+Character.cpp(48): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+Character.cpp(56): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+Character.cpp(60): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+Character.cpp(67): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+Character.cpp(71): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+Character.cpp(74): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+Character.cpp(91): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  tilemap.cpp
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\entity.h(63): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\entity.h(64): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\entity.h(75): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\entity.h(76): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   Generating code
-  All 4 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+c:\users\sabz\documents\programming_task\programming_task\task_click_point\dialogue.h(86): warning C4715: 'ReadXmlDialogue': not all control paths return a value
+  All 972 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
-  Task_Click_Point.vcxproj -> c:\users\sarah\documents\Programming_Task\Task_Click_Point\Release\Task_Click_Point.exe
+  Task_Click_Point.vcxproj -> C:\Users\sabz\Documents\Programming_Task\Programming_Task\Release\Task_Click_Point.exe

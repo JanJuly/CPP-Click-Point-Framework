@@ -30,24 +30,25 @@ public:
 	int timer;
 	sf::Clock clock;
 
+
+	//-------GAMEPLAY--------//
+
 	// Set current scene number (starting with scene 1)
 	int sceneNumber = 0;
-	// Set current introduction phase (starting with phase 1)
-	int introductionNumber = 1;
+	//introduction phase
+	bool introduction = true;
 	// Set Itemnumber that are active
-	int numberItems = 0;
+	int numberItems = -1;
 
 
 	// set bool to true if guess is correct or false
 	bool correct = false;
-	bool wrong = false;
-	bool newItem = false;
-
 	// if inventory is open, set to true
 	bool inventory = false;
 	// count to open/close inventory -> I'm starting with 1 because the sound will only be played if counter is 0
 	int openInventory = 1; 
 	int openFile = 0;
+	int firstLine = 0; //start quest line if 0
 
 };
 
