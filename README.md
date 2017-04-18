@@ -1,4 +1,4 @@
-# Programming_Task
+# C++ Click & Point Framework
 Semester Assignment - Point & Click RPG with C++ & SFML
 
 - Framework Video: https://drive.google.com/file/d/0Bxu7xYejDL-IZmVOT2xYTkhwSWs/view?usp=sharing
